@@ -1,3 +1,4 @@
+json.id capital.id
 json.city capital.city
 json.state capital.state
 json.timezone capital.timezone
