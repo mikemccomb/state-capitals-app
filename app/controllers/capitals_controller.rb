@@ -27,4 +27,10 @@ class CapitalsController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    capital = Capital.find_by(id: params[:id])
+    capital.destroy
+    render json: { message: "Buh-bye" }
+  end
 end
