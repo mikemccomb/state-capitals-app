@@ -23,4 +23,13 @@ class CapitalsControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal ["id", "city", "state", "timezone", "created_at", "updated_at"], data.keys
   end
+
+  test "update" do
+    capital = Capital.first
+    patch "/capitals/#{capital.id}.json", params: { city: "Updated name" }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal "Updated name", data["city"]
+  end
 end

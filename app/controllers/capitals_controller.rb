@@ -17,4 +17,14 @@ class CapitalsController < ApplicationController
     @capital = Capital.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @capital = Capital.find_by(id: params[:id])
+    @capital.update(
+      city: params[:city] || @capital.city,
+      state: params[:state] || @capital.state,
+      timezone: params[:state] || @capital.timezone,
+    )
+    render :show
+  end
 end
